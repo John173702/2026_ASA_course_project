@@ -1,14 +1,14 @@
-$(document).ready(function () {
+﻿$(document).ready(function () {
     const student_mobile = localStorage.getItem("student_mobile");
     const searchParamsString = localStorage.getItem("searchParams");
     const searchParams = JSON.parse(searchParamsString);
     // alert(searchParams.subject);
 
-    // 获取推荐教师信息
+    // 鑾峰彇鎺ㄨ崘鏁欏笀淇℃伅
     fetch(`http://8.130.139.193:5000/stu_search?mobile=${student_mobile}&subject=${searchParams.subject}&stage=${searchParams.stage}&time=${searchParams.time}&gender=${searchParams.gender}`)
         .then(response => response.json())
         .then(data => {
-            if (data === "暂无满足条件或条件相似的家教") {
+            if (data === "鏆傛棤婊¤冻鏉′欢鎴栨潯浠剁浉浼肩殑瀹舵暀") {
                 alert(data)
             } else {
                 displayRecommendations(data);
@@ -17,28 +17,28 @@ $(document).ready(function () {
         })
         .catch(error => {
             console.error('Error fetching data:', error);
-            alert('获取数据失败了: ' + error.message);
+            alert('鑾峰彇鏁版嵁澶辫触浜? ' + error.message);
         });
 
 
 
-    // 显示推荐教师信息
+    // 鏄剧ず鎺ㄨ崘鏁欏笀淇℃伅
     function displayRecommendations(data) {
 
         const tableBody = document.getElementById('data-table').getElementsByTagName('tbody')[0];
 
-        // 清空表格内容
+        // 娓呯┖琛ㄦ牸鍐呭
         tableBody.innerHTML = "";
 
-        // 遍历数据并生成表格行
+        // 閬嶅巻鏁版嵁骞剁敓鎴愯〃鏍艰
         data.forEach(item => {
             const row = tableBody.insertRow();
             // alert(item);
-            // 创建包含卡片的单元格
+            // 鍒涘缓鍖呭惈鍗＄墖鐨勫崟鍏冩牸
             const cell = row.insertCell();
-            cell.colSpan = 11; // 设置单元格跨越整行
+            cell.colSpan = 11; // 璁剧疆鍗曞厓鏍艰法瓒婃暣琛?
             // alert(item.TR_auto);
-            // 创建卡片元素
+            // 鍒涘缓鍗＄墖鍏冪礌
             const cardDiv = document.createElement('div');
             cardDiv.classList.add('card');
 
@@ -84,6 +84,11 @@ $(document).ready(function () {
             cardTeDiv.classList.add('card_te');
             cardTeDiv.textContent = item.TR_e;
 
+            const pendingCount = Number(item.pending_count || item.TR_pending || 0);
+            const cardCapacityDiv = document.createElement('div');
+            cardCapacityDiv.classList.add('card_capacity');
+            cardCapacityDiv.textContent = pendingCount >= 3 ? '名额已满' : `候选 /3`;
+
             const ratingDiv = document.createElement('div');
             ratingDiv.classList.add('star-rating');
 
@@ -104,17 +109,18 @@ $(document).ready(function () {
             const cardOption = document.createElement('div');
             cardOption.classList.add('card_option');
             if (item.TR_selected == 1) {
-                cardOption.textContent = '等待确认';
+                cardOption.textContent = '绛夊緟纭';
             } else {
                 const button = document.createElement('button');
                 button.id = 'open_select';
-                button.textContent = '选课';
+                button.textContent = pendingCount >= 3 ? '不可选择' : '閫夎';
+                button.disabled = pendingCount >= 3;
                 cardOption.appendChild(button);
                 button.addEventListener("click", function () {
                     openSelectModal(item.TR_auto);
                 });
             }
-            // 将所有元素添加到卡片主体
+            // 灏嗘墍鏈夊厓绱犳坊鍔犲埌鍗＄墖涓讳綋
             cardBodyDiv.appendChild(cardCircleDiv);
             cardBodyDiv.appendChild(cardIdDiv);
             cardBodyDiv.appendChild(cardNameDiv);
@@ -124,12 +130,13 @@ $(document).ready(function () {
             cardBodyDiv.appendChild(cardSubjectDiv);
             cardBodyDiv.appendChild(cardTsDiv);
             cardBodyDiv.appendChild(cardTeDiv);
+            cardBodyDiv.appendChild(cardCapacityDiv);
             cardBodyDiv.appendChild(ratingDiv);
             cardBodyDiv.appendChild(cardOption);
-            // 将卡片主体添加到卡片容器
+            // 灏嗗崱鐗囦富浣撴坊鍔犲埌鍗＄墖瀹瑰櫒
             cardDiv.appendChild(cardBodyDiv);
 
-            // 将卡片容器添加到表格单元格
+            // 灏嗗崱鐗囧鍣ㄦ坊鍔犲埌琛ㄦ牸鍗曞厓鏍?
             cell.appendChild(cardDiv);
         });
         function displayRating(starsDiv, rating) {
@@ -148,7 +155,7 @@ $(document).ready(function () {
 
     }
 
-    // 打开选课确认弹窗
+    // 鎵撳紑閫夎纭寮圭獥
     function openSelectModal(TR_auto) {
         const modal = document.getElementById("SelectModal");
         modal.style.display = "block";
@@ -168,7 +175,7 @@ $(document).ready(function () {
         };
     }
 
-    // 确认选课
+    // 纭閫夎
     function confirmSelect(TR_auto) {
         const student_mobile = localStorage.getItem("student_mobile");
         const dataString = `${student_mobile},${TR_auto}`;
@@ -182,20 +189,20 @@ $(document).ready(function () {
         })
             .then(response => response.json())
             .then(data => {
-                alert(data.res); // 显示后端返回的消息
-                if (data.res.includes('成功')) {
-                    location.reload(); // 选课成功后刷新页面
+                alert(data.res); // 鏄剧ず鍚庣杩斿洖鐨勬秷鎭?
+                if (data.res.includes('鎴愬姛')) {
+                    location.reload(); // 閫夎鎴愬姛鍚庡埛鏂伴〉闈?
                 }
             })
             .catch(error => {
                 console.error("Error:", error);
-                alert('选课失败: ' + error.message);
+                alert('閫夎澶辫触: ' + error.message);
             });
     }
 
 
 
-    //尝试个人信息浮窗
+    //灏濊瘯涓汉淇℃伅娴獥
     function openInfoModal(item) {
         const existingModal = document.getElementById("InfoModal");
         if (existingModal) {
@@ -210,41 +217,41 @@ $(document).ready(function () {
                     <span class="close">&times;</span>
                     <div class="info_modal-main">
                         <div class="imgbox">
-                            <img id="avatar_${item.TR_id}" src="" alt="用户头像" class="img_form">
+                            <img id="avatar_${item.TR_id}" src="" alt="鐢ㄦ埛澶村儚" class="img_form">
                         </div>
                         <div class="infobox">
                             <div class="info-form-group">
-                                <label for="id">联系方式：</label>
+                                <label for="id">鑱旂郴鏂瑰紡锛?/label>
                                 <span id="modal_contact"></span>
                             </div>
                             <div class="info-form-group">
-                                <label for="name">姓&emsp;&emsp;名：</label>
+                                <label for="name">濮?emsp;&emsp;鍚嶏細</label>
                                 <span id="modal_name"></span>
                             </div>
                             <div class="info-form-group">
-                                <label for="sex">性&emsp;&emsp;别：</label>
+                                <label for="sex">鎬?emsp;&emsp;鍒細</label>
                                 <span id="modal_sex"></span>
                             </div>
                             <div class="info-form-group">
-                                <label for="school">学&emsp;&emsp;校：</label>
+                                <label for="school">瀛?emsp;&emsp;鏍★細</label>
                                 <span id="modal_school"></span>
                             </div>
                             <div class="info-form-group">
-                                <label for="subject">教学科目：</label>
+                                <label for="subject">鏁欏绉戠洰锛?/label>
                                 <span id="modal_subject"></span>
                             </div>
                             <div class="info-form-group">
-                                <label for="mail">邮&emsp;&emsp;箱：</label>
+                                <label for="mail">閭?emsp;&emsp;绠憋細</label>
                                 <span id="modal_mail"></span>
                             </div>
                             <div class="info-form-group">
-                                <label for="address">地&emsp;&emsp;址：</label>
+                                <label for="address">鍦?emsp;&emsp;鍧€锛?/label>
                                 <span id="modal_address"></span>
                             </div>
                         </div>
-                        <div class="info_title">教师信息</div>
+                        <div class="info_title">鏁欏笀淇℃伅</div>
                         <div class="introduce_box" id="modal_intro"></div>
-                        <div class="introduce_title">自我介绍</div>
+                        <div class="introduce_title">鑷垜浠嬬粛</div>
                     </div>
                 </div>
             `;
@@ -288,9 +295,10 @@ $(document).ready(function () {
                 })
                 .catch(error => {
                     console.error("Error fetching teacher avatar:", error);
-                    alert('获取教师头像失败: ' + error.message);
+                    alert('鑾峰彇鏁欏笀澶村儚澶辫触: ' + error.message);
                 });
         }
     }
 
 });
+

@@ -1,4 +1,4 @@
-import pymysql
+﻿import pymysql
 
 def select_one(table_name,attrs,limit):
 
@@ -17,12 +17,12 @@ def select_one(table_name,attrs,limit):
     try:
         cursor.execute(sql)
 
-        result = cursor.fetchone()  # 返回一行数据
+        result = cursor.fetchone()  # 杩斿洖涓€琛屾暟鎹?
 
     except Exception as e:
         conn.rollback()
-        print("select 查询报错",e)
-        result = "暂无数据"
+        print("select 鏌ヨ鎶ラ敊",e)
+        result = "鏆傛棤鏁版嵁"
 
     finally:
         cursor.close()
@@ -32,6 +32,33 @@ def select_one(table_name,attrs,limit):
     return result
 
 
+
+
+
+def select_count(table_name, limit):
+
+    conn = pymysql.connect(
+        host='127.0.0.1',
+        user='root',
+        password='380988118GUOjh!',
+        port=3306,
+        database='SE'
+    )
+
+    cursor = conn.cursor(pymysql.cursors.DictCursor)
+    sql = 'select count(*) as total from ' + table_name + ' where ' + limit + ";"
+
+    try:
+        cursor.execute(sql)
+        result = cursor.fetchone()
+        return int(result['total']) if result else 0
+    except Exception as e:
+        conn.rollback()
+        print("select count query error", e)
+        return 0
+    finally:
+        cursor.close()
+        conn.close()
 
 def select_for_stu_search(subject, stage, time, gender):
 
@@ -76,8 +103,8 @@ def select_for_stu_search(subject, stage, time, gender):
 
     except Exception as e:
         conn.rollback()
-        print("select 查询报错",e)
-        result = "暂无数据"
+        print("select 鏌ヨ鎶ラ敊",e)
+        result = "鏆傛棤鏁版嵁"
 
     finally:
         cursor.close()
@@ -113,7 +140,7 @@ def select_for_tea_search(id):
 
     except Exception as e:
         conn.rollback()
-        print("select 查询报错",e)
+        print("select 鏌ヨ鎶ラ敊",e)
 
     finally:
         cursor.close()
@@ -149,13 +176,14 @@ def select_for_chosen(identity, id_num):
 
     except Exception as e:
         conn.rollback()
-        print("select 查询报错",e)
+        print("select 鏌ヨ鎶ラ敊",e)
 
     finally:
         cursor.close()
         conn.close()
     
     return result
+
 
 
 
