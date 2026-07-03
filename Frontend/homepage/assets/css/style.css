@@ -1,0 +1,567 @@
+/*顶部导航栏*/
+.logo_style {
+    color: #0f88eb;
+    font-family: '华文彩云';
+    font-size: 50px;
+    position: relative;
+    top: -5px;
+}
+
+li,a{
+    font-family: "Montserrat",sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    color:gray;
+    /*color: #edf0f1;*/
+    text-decoration: none;
+}
+
+/*
+.exit_button{
+    font-family: "Montserrat",sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    color:white;
+    text-decoration: none;
+}
+*/
+
+header{
+    border: 1px solid #d5d5d5;
+    display: flex;
+    justify-content: space-between;
+    align-items:center;
+    padding: 10px 10%;
+    box-shadow: 1px 1px 1px 1px #0f88eb;
+    border-radius:10px;
+}
+
+
+.nav_links{
+    list-style: none;
+}
+
+.nav_links li{
+    display: inline-block;
+    padding: 0px 10px;
+}
+
+.nav_links li:nth-child(1){
+    text-decoration: underline;
+}
+
+.nav_links li a{
+    transition: all 0.3s ease 0s;
+}
+
+.nav_links li a:hover{
+    color: #0088a9;
+}
+
+header button{
+    font-family: "Montserrat",sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    color:white;
+    text-decoration: none;
+    padding: 9px 25px;
+    background-color: #58a7e8;
+    /*background-color: rgba(0, 136, 169, 1);*/
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease 0s;
+ }
+header button:hover{
+    background-color: rgba(0, 136, 169, 0.7);
+ }
+
+/*主体部分*/
+
+.wtf_main {
+    
+    width: 1200px;
+    height: 1800px;
+    margin: 10px auto;
+    background-color: #f2f5f9;
+}
+
+
+/*学生已发布信息框*/
+.home_stu_submited{
+    height: 500px;
+    width: 800px;
+    padding:20px;
+    margin:10px auto;
+    /*
+    padding-left: 100px;
+    padding-top: 100px;
+    padding-right: 100px;
+    /*margin: 100px auto;*/
+    background-color:#f2f5f9;
+    border: 2px solid #0f88eb;
+    border-radius:10px;
+    box-shadow: 1px 1px 1px 1px #0f88eb;
+
+}
+
+
+
+
+/*已发布信息box1*/
+.stu_text_box1{
+    font-family: "Montserrat",sans-serif;
+    font-size:18px;
+    color:white;
+    text-align: center;
+    line-height:40px;
+    height:40px;
+    width:100px;
+    border: none;
+    border-radius: 15% 0 0 15%;
+    background-color: #0f88eb;
+    display: inline-block;
+}
+
+/*学生已发布信息查询按钮*/
+.stu_submited_search{
+    /*修饰搜索按钮部分*/
+    border: none;
+    width: 80px;
+    height: 40px;
+    font-size: 16px;
+    color: white;
+    background-color: red;
+    /*background-color: rgb(35, 95, 146);*/
+    border-radius: 0 15% 15% 0;
+    cursor: pointer;
+    position: absolute;
+}
+
+
+/*学生推荐家教信息框*/
+.stu_recom_box2{
+    height: 300px;
+    width: 700px;
+    padding:20px;
+    margin:10px auto;
+    /*
+    padding-left: 100px;
+    padding-top: 100px;
+    padding-right: 100px;
+    /*margin: 100px auto;*/
+    background-color:#f2f5f9;
+    border: 1px solid #0f88eb;
+    border-radius:10px;
+    box-shadow: 1px 1px 1px 1px #0f88eb;
+}
+
+.generate_table{
+    padding:6px;
+}
+/*推荐家教信息box2*/
+.stu_text_box2{
+    font-family: "Montserrat",sans-serif;
+    font-size:18px;
+    color:white;
+    text-align: center;
+    line-height:40px;
+    height:40px;
+    width:100px;
+    border: none;
+    border-radius: 15% 0 0 15%;
+    background-color: #0f88eb;
+    display: inline-block;
+}
+
+/*推荐家教信息查询按钮*/
+.stu_recom_search{
+    /*修饰搜索按钮部分*/
+    border: none;
+    width: 80px;
+    height: 40px;
+    font-size: 16px;
+    color: white;
+    background-color: red;
+    /*background-color: rgb(35, 95, 146);*/
+    border-radius: 0 15% 15% 0;
+    cursor: pointer;
+    position: absolute;
+}
+
+.soft_info{
+    width:890px;
+    margin:auto;
+}
+
+
+
+
+/*新的*/
+.form-container {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    margin:auto;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+}
+
+h2 {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+input, select {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+    background-color: #007BFF;
+    border: none;
+    border-radius: 4px;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.msg {
+    display: none;
+    margin-top: 5px;
+}
+
+.onError {
+    color: red;
+    display: inline-block;
+}
+
+.onSuccess {
+    color: green;
+    display: inline-block;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+
+.soft_info{
+    width:890px;
+    margin:auto;
+}
+
+/*为卡片打孔*/
+.circle {
+    width: 20px;
+    height: 20px;
+    background-color: white;
+    color:white;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/*已发布信息框*/
+.home_stu_submited .titlebox{
+    font-family: "Montserrat",sans-serif;
+    font-size:18px;
+    color:white;
+    text-align: center;
+    line-height:40px;
+    height:40px;
+    width:120px;
+    border: none;
+    border-radius: 15% 15% 15% 15%;
+    background-color: #0f88eb;
+    display: inline-block;
+    margin-top: 10px;
+    margin-left: 25px;
+}
+
+/*已发布信息表*/
+
+.submited_header_circle{
+    width:5%;
+    text-align:center;
+}
+.submited_header_stage{
+    width:10%;
+}
+.submited_header_subject{
+    width:10%;
+    padding-left: 40px;
+}
+.submited_header_ts{
+    width:25%;
+    padding-left: 100px;
+}
+.submited_header_te{
+    width:25%;
+    padding-left:100px;
+}
+.submited_header_option{
+    width:20%;
+}
+
+
+.submited_card_circle{
+    flex-basis:5%;
+}
+
+.submited_card_stage {
+    flex-basis: 10%;
+    text-align: left;
+}
+
+.submited_card_subject {
+    flex-basis: 10%;
+    text-align: left;
+}
+
+.submited_card_ts{
+    flex-basis: 25%;
+    text-align: left;
+}
+
+.submited_card_te{
+    flex-basis: 25%;
+}
+
+.submited_card_option{
+    flex-basis: 20%;
+}
+
+#submited_button{
+    height:24px;
+    width:80px;
+    text-align: center;
+    font-size: 16px;
+    padding: 0px;
+    background-color: #0f88eb;
+}
+
+/**/
+
+/*待确认框*/
+.not_confirm{
+    width:850px;
+    height:600px;
+    /*background-color: red;*/
+    margin: 10px auto;
+    background-color:#f2f5f9;
+    border: 2px solid #0f88eb;
+    border-radius:10px;
+    box-shadow: 1px 1px 1px 1px #0f88eb;
+}
+
+/*待确认 标题*/
+.not_confirm .titlebox{
+    font-family: "Montserrat",sans-serif;
+    font-size:18px;
+    color:white;
+    text-align: center;
+    line-height:40px;
+    height:40px;
+    width:120px;
+    border: none;
+    border-radius: 15% 15% 15% 15%;
+    background-color: #0f88eb;
+    display: inline-block;
+    margin-top: 30px;
+    margin-left: 40px;
+}
+
+/*待确认表 header*/
+.unconfirm_header_circle{
+    width:5%;
+    text-align:center;
+}
+.unconfirm_header_id{
+    width:20%;
+    padding-left: 35px;
+}
+.unconfirm_header_name{
+    width:10%;
+    padding-left: 30px;
+}
+.unconfirm_header_stage{
+    width:10%;
+    padding-left: 40px;
+}
+.unconfirm_header_subject{
+    width:10%;
+    padding-left: 50px;
+}
+.unconfirm_header_time{
+    width:25%;
+    padding-left: 80px;
+}
+.unconfirm_header_option{
+    width:20%;
+}
+
+
+/*待确认表 卡片*/
+.card {
+    background-color: #f0f4f8;
+    border: 1px solid white;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    margin-bottom: 5px;
+    box-shadow: 1px 1px 1px 1px #dae5f1;
+    border-radius: 10px;
+}
+
+.card-body {
+    display: flex;
+    justify-content: space-between;
+    flex: 1;
+}
+
+
+
+.unconfirm_card_circle{
+    flex-basis:5%;
+}
+.unconfirm_card_id {
+    flex-basis: 20%;
+    text-align: center;
+}
+
+.unconfirm_card_name {
+    flex-basis: 10%;
+    text-align: left;
+}
+
+
+.unconfirm_card_stage {
+    flex-basis: 10%;
+    text-align: left;
+}
+
+.unconfirm_card_subject {
+    flex-basis: 10%;
+    text-align: left;
+}
+
+.unconfirm_card_time{
+    flex-basis: 25%;
+    text-align: left;
+}
+
+
+
+.unconfirm_card_option{
+    flex-basis: 20%;
+}
+
+#confirm_button{
+    height:24px;
+    width:80px;
+    text-align: center;
+    font-size: 16px;
+    padding: 0px;
+    background-color: #0f88eb;
+}
+
+/*正在上课*/
+.doing{
+    width:850px;
+    height:600px;
+    margin: 10px auto;
+    background-color:#f2f5f9;
+    border: 2px solid #0f88eb;
+    border-radius:10px;
+    box-shadow: 1px 1px 1px 1px #0f88eb;
+}
+.doing .titlebox{
+    font-family: "Montserrat",sans-serif;
+    font-size:18px;
+    color:white;
+    text-align: center;
+    line-height:40px;
+    height:40px;
+    width:120px;
+    border: none;
+    border-radius: 15% 15% 15% 15%;
+    background-color: #0f88eb;
+    display: inline-block;
+    margin-top: 30px;
+    margin-left: 40px;
+}
+
+/*待确认表 header*/
+.doing_header_circle{
+    width:5%;
+    text-align:center;
+}
+.doing_header_id{
+    width:20%;
+    padding-left: 35px;
+}
+.doing_header_name{
+    width:10%;
+    padding-left: 30px;
+}
+.doing_header_stage{
+    width:10%;
+}
+.doing_header_subject{
+    width:10%;
+}
+.doing_header_ts{
+    width:25%;
+}
+.doing_header_te{
+    width:20%;
+}
+
+.doing_card_circle{
+    flex-basis:5%;
+}
+.doing_card_id {
+    flex-basis: 20%;
+    text-align: center;
+}
+
+.doing_card_name {
+    flex-basis: 10%;
+    text-align: right;
+}
+
+
+.doing_card_stage {
+    flex-basis: 10%;
+    text-align: center;
+}
+
+.doing_card_subject {
+    flex-basis: 10%;
+    text-align: center;
+}
+
+.doing_card_ts{
+    flex-basis: 25%;
+    text-align: center;
+}
+
+.doing_card_te{
+    flex-basis: 20%;
+}

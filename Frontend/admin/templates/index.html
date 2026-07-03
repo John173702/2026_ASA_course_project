@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<!-- Designined by CodingLab | www.youtube.com/codinglabyt -->
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="UTF-8">
+  <title>管理员页面</title>
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <!-- Boxiocns CDN Link -->
+  <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.jsdelivr.net/npm/echarts@5.5.0/dist/echarts.min.js"></script>
+</head>
+
+<body>
+  <div class="sidebar">
+    <div>
+      <span class="logo_name">琢玉</span>
+    </div>
+    <ul class="nav-links">
+      <li>
+        <a href="#">
+          <i class='bx bx-pie-chart-alt-2'></i>
+          <span class="link_name">数据统计</span>
+        </a>
+        <ul class="sub-menu blank">
+          <li><a class="link_name" href="#">数据统计</a></li>
+        </ul>
+      </li>
+      <li>
+        <div class="profile-details">
+          <div class="profile-content">
+            <img src="../img/Alice.png" alt="profile">
+          </div>
+          <div class="name-job">
+            <div class="profile_name">Admin</div>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
+
+
+  <section class="home-section">
+    <div class="home-content">
+      <i class='bx bx-menu'></i>
+      <span class="text">数据统计</span>
+    </div>
+  </section>
+
+
+  <main class="wtf_main">
+    <div id="pie"></div>
+    <div id="line"></div>
+  </main>
+
+
+
+</body>
+
+
+
+<script>
+  fetch('http://8.130.139.193:5000/stats_quire')
+    .then(response => response.json())
+    .then(data => {
+      const res = data.res
+      const stu_num = res.stu_num;
+      const tea_num = res.tea_num;
+      var myChart = echarts.init(document.getElementById('pie'));
+      var option = {
+        title: {
+          text: '用户情况',
+          left: 'center'
+        },
+        tooltip: {
+          trigger: 'item'
+        },
+        legend: {
+          orient: 'vertical',
+          left: 'left'
+        },
+        series: [
+          {
+            name: '用户种类',
+            type: 'pie',
+            radius: '50%',
+            data: [
+              { value: stu_num, name: '学生用户' },
+              { value: tea_num, name: '教师用户' },
+            ],
+            emphasis: {
+              itemStyle: {
+                shadowBlur: 10,
+                shadowOffsetX: 0,
+                shadowColor: 'rgba(0, 0, 0, 0.5)'
+              }
+            }
+          }
+        ]
+      };
+
+      myChart.setOption(option);
+    })
+    .catch(error => {
+      console.error('Fetch error:', error);
+    });
+
+</script>
+
+<script>
+  fetch('http://8.130.139.193:5000/stats_quire')
+    .then(response => response.json())
+    .then(data => {
+      const res = data.res
+      const a1 = res.a1;
+      const a2 = res.a2;
+      const a3 = res.a3;
+      const a4 = res.a4;
+      const a5 = res.a5;
+      const a6 = res.a6;
+      const a7 = res.a7;
+
+      var myChart = echarts.init(document.getElementById('line'));
+      var option = {
+        title: {
+          text: '流量访问统计',
+          left: 'center'
+        },
+        xAxis: {
+          type: 'category',
+          data: ['1', '2', '3', '4', '5', '6', '7']
+        },
+        yAxis: {
+          type: 'value'
+        },
+        series: [
+          {
+            data: [a1, a2, a3, a4, a5, a6, a7],
+            type: 'line'
+          }
+        ]
+      };
+      myChart.setOption(option);
+    })
+    .catch(error => {
+      console.error('Fetch error:', error);
+    });
+</script>
+
+</html>

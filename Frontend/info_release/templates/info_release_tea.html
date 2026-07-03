@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>教师页面</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="../js/publish_script.js"></script>
+</head>
+
+<body style="background-color:#f2f5f9">
+    <header>
+        <div class="logo_style">琢玉</div>
+        <nav>
+            <ul class="nav_links">
+                <li><a href="../../homepage/templates/homepage_tea.html">主页</a></li>
+                <li><a href="javascript:;">信息发布</a></li>
+                <li><a href="../../info_complete/templates/info_complete.html">个人信息</a></li>
+            </ul>
+        </nav>
+        <a href="../../login/templates/login_student.html" class="exit_button"><button>退出登录</button></a>
+    </header>
+    <main>
+        <div class="wtf_main">
+            <div class="form-container">
+                <h2>信息发布</h2>
+                <form id="publishForm" action="/submit" method="post">
+                    <div class="form-group">
+                        <label for="subject">科目:</label>
+                        <input type="text" id="subject" name="subject" class="required">
+                    </div>
+                    <div class="form-group">
+                        <label for="stage">阶段:</label>
+                        <input type="text" id="stage" name="stage" class="required">
+                        <span class="msg"></span>
+                    </div>
+                    <div class="form-group">
+                        <label for="start-time">开始时间:</label>
+                        <input type="datetime-local" id="start-time" name="start-time" class="required">
+                        <span class="msg"></span>
+                    </div>
+                    <div class="form-group">
+                        <label for="end-time">结束时间:</label>
+                        <input type="datetime-local" id="end-time" name="end-time" class="required">
+                        <span class="msg"></span>
+                    </div>
+                    <div class="form-group">
+                        <label for="introduce-self">自我介绍：</label>
+                        <textarea id="introduce-self" name="introduce-self" class="required"></textarea>
+                        <span class="msg"></span>
+                    </div>
+                    <button type="button" id="btnSubmit">提交</button>
+                </form>
+            </div>
+        </div>
+    </main>
+    <!--
+    <div class="soft_info">
+        <h3>
+        《琢玉》是一款由哈尔滨工业大学软工自主研发的游戏。游戏发生在一个被称作“银河系猎户座第三旋臂太阳系第三行星”的世界，玩家将扮演一个被称作“大学牲”的神秘角色，在学校的旅程中邂逅风格各异，要求独特的DDL，并和同学们一起击败考试，寻找丢失的学分绩，同时逐步发掘“通宵写报告”的真相
+        </h3>
+    </div>
+    -->
+    <!-- 添加用于显示后端返回数据的div -->
+    <div id="output"></div>
+</body>
+
+</html>

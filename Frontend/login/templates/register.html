@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>注册</title>
+	<span class="head-title">琢玉</span>
+	<link rel="stylesheet" href="../assets/libs/particles/css/style.css">
+	<link rel="stylesheet" href="../assets/libs/sweetalert2/sweetalert2.min.css">
+	<link rel="stylesheet" href="../assets/css/base.css">
+	<link rel="stylesheet" href="../assets/css/login.css">
+	<style>
+		.select-menu .options-list {
+			position: absolute;
+			background-color: white;
+			z-index: 1000;
+			width: 100%;
+		}
+	</style>
+</head>
+<body>
+	<!-- particles.js container -->
+	<div id="particles-js"></div>
+	<div id ="info_wrapper">
+		<h2>
+			与做题家分享你的知识、经验和见解
+		</h2>
+	</div>
+	<div id="wrapper">
+		<nav class="switch_nav">
+			<a href="login_student.html" id="switch_login" class="switch_btn">学生登陆</a>
+			<a href="login_teacher.html" id="switch_login" class="switch_btn">教师登陆</a>
+			<a href="javascript:;" id="switch_signup" class="switch_btn on">用户注册</a>
+			<div class="switch_bottom" id="switch_bottom"></div>
+		</nav>
+		<form id="registerForm">
+			<ul class="group_input">
+				<li>
+					<input type="text" placeholder="姓名" class="name required" id="name" />
+				</li>
+				<li>
+					<input type="text" placeholder="手机" class="mobile required" id="mobile" />
+				</li>
+				<li>
+					<input type="password" placeholder="密码(不少于6位)" class="psd required" id="password" />
+				</li>
+				<li>
+					<div class="select-menu">
+						<div class="select">
+						  <span>身份</span>
+						  <i class="fas fa-angle-down"></i>
+						</div>
+						<div class="options-list">
+						  <div class="option">学生</div>
+						  <div class="option">家教</div>
+						</div>
+					</div>
+				</li>
+				<li>
+					<input type="text" id="school" placeholder="学校">
+				</li>
+				<li>
+					<div>
+						<label><input type="radio" name="gender" value="M" style="width: 20px; height: 20px;"> 男</label>
+						<label><input type="radio" name="gender" value="F" style="width: 20px; height: 20px;"> 女</label>
+					</div>
+				</li>
+			</ul>
+			<button type="submit" class="submit_btn" id="btnSubmit">注册琢玉</button>
+			<span class="agreement-tip">点击「注册」按钮，即代表你同意<a href="javascript:;">《琢玉协议》</a></span>
+		</form>
+	</div>
+	    <!--
+
+	<div id="soft_info">
+		<h3>
+		《琢玉》是一款由哈尔滨工业大学软工自主研发的游戏。游戏发生在一个被称作“银河系猎户座第三旋臂太阳系第三行星”的世界，玩家将扮演一个被称作“大学牲”的神秘角色，在学校的旅程中邂逅风格各异，要求独特的DDL，并和同学们一起击败考试，寻找丢失的学分绩，同时逐步发掘“通宵写报告”的真相
+		</h3>
+	-->
+	</div>
+	<script src="../assets/libs/jquery-1.12.4/jquery.min.js"></script>
+	<script src="../assets/libs/sweetalert2/sweetalert2.min.js"></script>
+	<script src="../assets/libs/particles/particles.min.js"></script>
+	<script src="../assets/libs/particles/js/app.js"></script>
+	<script src="../assets/js/register_script.js"></script>
+	<script>
+		$(".download_btn").click(function(){
+			if($(".QRcode").css("display")=="none"){
+				$(".QRcode").show();
+				$(".download_btn").text("关闭二维码");
+			}else{
+				$(".QRcode").hide();
+				$(".download_btn").text("下载琢玉App");
+			}
+		});	
+	</script>
+	<script>
+		$(function(){
+			$("form :input").blur(function(){
+				var $parent = $(this).parent();
+				$parent.find(".msg").remove(); //删除以前的提醒元素（find()：查找匹配元素集中元素的所有匹配元素）
+				//验证姓名
+				if($(this).is("#name")){
+					var nameVal = $.trim(this.value);
+					var regName = /[~#^$@%&!*()<>:;'"{}【】  ]/;
+					if(nameVal == "" || nameVal.length < 2 || regName.test(nameVal)){
+						var errorMsg = " 姓名非空，长度2-20位，不包含特殊字符！";
+						$parent.append("<span class='msg onError'>" + errorMsg + "</span>");
+					} else{
+						var okMsg=" 输入正确";
+						$parent.append("<span class='msg onSuccess'>" + okMsg + "</span>");
+					}
+				}			
+				//验证手机号
+				if($(this).is("#mobile")){
+					var mobileVal = $.trim(this.value);
+					var regMobile = /^1[3|4|5|7|8][0-9]{9}$/;
+					if(mobileVal == "" || !regMobile.test(mobileVal)){
+						var errorMsg = " 请输入有效手机号！";
+						$parent.append("<span class='msg onError'>" + errorMsg + "</span>");
+					} else{
+						var okMsg=" 输入正确";
+						$parent.append("<span class='msg onSuccess'>" + okMsg + "</span>");
+					}
+				}
+				//验证密码
+				if($(this).is("#password")){
+					var psdVal = $.trim(this.value);
+					var regPsd = /^(?![0-9]+$)(?![a-zA-Z]+$)[0-9A-Za-z]{6,20}$/;
+					if(psdVal== "" || !regPsd.test(psdVal)){
+						var errorMsg = " 密码为6-20位字母、数字的组合！";
+						$parent.append("<span class='msg onError'>" + errorMsg + "</span>");
+					}
+					else{
+						var okMsg=" 输入正确";
+						$parent.append("<span class='msg onSuccess'>" + okMsg + "</span>");
+					}
+				}
+			}).keyup(function(){
+				$(this).triggerHandler("blur"); 
+			}).focus(function(){
+				$(this).triggerHandler("blur");
+			});
+
+			$("#btnSubmit").click(function(){
+				$("form .required:input").trigger("blur"); 
+				var numError = $("form .onError").length;
+				if(numError){
+					return false;
+				}
+			});
+		});
+	</script>
+	<script src="../assets/js/script.js"></script>
+</body>
+</html>

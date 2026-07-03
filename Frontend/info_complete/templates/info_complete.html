@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>教师页面</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="../js/info_complete_script.js"></script>
+</head>
+
+<body style="background-color:#f2f5f9">
+    <header>
+        <div class="logo_style">琢玉</div>
+        <nav>
+            <ul class="nav_links">
+                <li><a href="../../homepage/templates/homepage_tea.html">主页</a></li>
+                <li><a href="../../info_release/templates/info_release_tea.html">信息发布</a></li>
+                <li><a href="javascript:;">个人信息</a></li>
+            </ul>
+        </nav>
+        <a href="../../login/templates/login_student.html" class="exit_button"><button>退出登录</button></a>
+    </header>
+
+    <main class="wtf_main">
+        <div class="infobox_header">
+            <div>
+                个人信息
+            </div>
+        </div>
+
+        <div class="infobox">
+            <div class="imgbox">
+                <img src="../imgs/Alice.png" alt="用户头像" class="img_form" id="user_avatar">
+                <button id="modify_img">修改头像</button>
+            </div>
+
+            <div class="textbox">
+                <div class="form-group">
+                    <label for="id">账&emsp;&emsp;号:</label>
+                    <input type="text" id="id" name="id" class="required" readonly>
+                </div>
+                <div class="form-group">
+                    <label for="name">姓&emsp;&emsp;名:</label>
+                    <input type="text" id="name" name="name" class="required" readonly>
+                </div>
+                <div class="form-group">
+                    <label for="sex">性&emsp;&emsp;别:</label>
+                    <input type="text" id="sex" name="sex" class="required" readonly>
+                </div>
+                <div class="form-group">
+                    <label for="school">学&emsp;&emsp;校:</label>
+                    <input type="text" id="school" name="school" class="required">
+                </div>
+                <div class="form-group">
+                    <label for="subject">教学科目:</label>
+                    <input type="text" id="subject" name="subject" class="required">
+                </div>
+                <div class="form-group">
+                    <label for="mail">邮&emsp;&emsp;箱:</label>
+                    <input type="text" id="mail" name="mail" class="required">
+                </div>
+                <div class="form-group">
+                    <label for="address">地&emsp;&emsp;址:</label>
+                    <input type="text" id="address" name="address" class="required">
+                </div>
+            </div>
+        </div>
+
+        <div class="passwordbox">
+            <button id="info_tea">个人信息</button>
+            <button id="password_modify">修改密码</button>
+            <button id="id_delete">账号注销</button>
+        </div>
+
+        <div class="savebox">
+            <button id="save_info">保存信息</button>
+        </div>
+    </main>
+<!--
+    <div class="soft_info">
+        <h3>
+        《琢玉》是一款由哈尔滨工业大学软工自主研发的游戏。游戏发生在一个被称作“银河系猎户座第三旋臂太阳系第三行星”的世界，玩家将扮演一个被称作“大学牲”的神秘角色，在学校的旅程中邂逅风格各异，要求独特的DDL，并和同学们一起击败考试，寻找丢失的学分绩，同时逐步发掘“通宵写报告”的真相
+        </h3>
+    </div>
+-->
+    <script>
+        document.getElementById("info_tea").onclick = function () {
+            location.href = "../templates/info_complete.html";
+        };
+        document.getElementById("password_modify").onclick = function () {
+            location.href = "../templates/pass_modify.html";
+        };
+        document.getElementById("id_delete").onclick = function () {
+            location.href = "../templates/id_delete.html";
+        };
+    </script>
+</body>
+
+</html>

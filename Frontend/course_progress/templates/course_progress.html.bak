@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>学生页面</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+
+<body style="background-color:#f2f5f9">
+    <header>
+        <div class="logo_style">琢玉</div>
+        <nav>
+            <ul class="nav_links">
+                <li><a href="../../homepage/templates/homepage_stu.html">主页搜索</a></li>
+                <li><a href="../../info_release/templates/info_release_stu.html">查询结果</a></li>
+                <li><a href="javascript:;">已选课程</a></li>
+            </ul>
+        </nav>
+        <a href="../../login/templates/login_student.html" class="exit_button"><button>退出登录</button></a>
+    </header>
+
+    <main>
+        <div class="wtf_main">
+            <div class="mainbox_header">
+                <div class="header_text">
+                    正在进行中...
+                </div>
+            </div>
+
+            <div class="mainbox">
+                <table id="data-table">
+                    
+                    <thead>
+                        <tr>
+                            <th class="table_header_id">联系方式</th>
+                            <th class="table_header_name">教师姓名</th>
+                            <th class="table_header_sex">性别</th>
+                            <th class="table_header_school">学校</th>
+                            <th class="table_header_stage">阶段</th>
+                            <th class="table_header_subject">科目</th>
+                            <th class="table_header_time">时间</th>
+                            <th class="table_header_option"></th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+
+                        <!-- example示例 -->
+                        
+
+                        <tr>
+                            <td colspan="8">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <div class="card_id">15222222222</div>
+                                        <div class="card_name">保罗</div>
+                                        <div class="card_sex">男</div>
+                                        <div class="card_school">哈尔滨工业大学</div>
+                                        <div class="card_stage">高中</div>
+                                        <div class="card_subject">物理</div>
+                                        <div class="card_time">2021-05-04</div>
+                                        <div class="card_option">
+                                            <button id="openModalBtn">结束课程</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+
+
+                    </tbody>
+
+                </table>
+
+            </div>
+        </div>
+    </main>
+
+    <div class="soft_info">
+        <h3>
+        《琢玉》是一款由哈尔滨工业大学软工自主研发的游戏。游戏发生在一个被称作“银河系猎户座第三旋臂太阳系第三行星”的世界，玩家将扮演一个被称作“大学牲”的神秘角色，在学校的旅程中邂逅风格各异，要求独特的DDL，并和同学们一起击败考试，寻找丢失的学分绩，同时逐步发掘“通宵写报告”的真相
+        </h3>
+    </div>
+
+
+
+    <!--悬浮页面-->
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <div class="modal-main">
+                <div class="modal-confirm_text">
+                    确认要结束该课程吗？
+                </div>
+                <div class="modal-ratingbox">
+                    <div>
+                        <label for="rating">请给教师评分(0~5):</label>
+                        <input type="text" id="rating" name="rating" class="required">
+                    </div>
+                </div>
+                <button id="finish-confirm" class="finish-confirm">确认结束</button>
+            </div>
+        </div>
+    </div>
+
+
+</body>
+
+<script>
+    $(document).ready(function () {
+        var modal = document.getElementById("myModal");
+        var btn = document.getElementById("openModalBtn");
+        var span = document.getElementsByClassName("close")[0];
+        btn.onclick = function () {
+            modal.style.display = "block";
+        }
+        span.onclick = function () {
+            modal.style.display = "none";
+        }
+        window.onclick = function (event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+    });
+</script>
+
+</html>

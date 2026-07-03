@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>教师页面</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="../js/published_info_script.js"></script>
+</head>
+
+<body style="background-color:#f2f5f9">
+    <header>
+        <div class="logo_style">琢玉</div>
+        <nav>
+            <ul class="nav_links">
+                <li><a href="homepage_tea.html">主页</a></li>
+                <li><a href="../../info_release/templates/info_release_tea.html">信息发布</a></li>
+                <li><a href="../../info_complete/templates/info_complete.html">个人信息</a></li>
+            </ul>
+        </nav>
+        <a href="../../login/templates/login_teacher.html" class="exit_button"><button>退出登录</button></a>
+    </header>
+
+    <main>
+        <div class="wtf_main">
+            <div class="home_stu_submited">
+                <div class="titlebox">已发布信息</div>
+                <table id="data-table">
+                    <thead>
+                        <tr>
+                            <th class="submited_header_circle">&emsp;&emsp;&emsp;</th>
+                            <th class="submited_header_stage">阶段</th>
+                            <th class="submited_header_subject">科目</th>
+                            <th class="submited_header_ts">开始时间</th>
+                            <th class="submited_header_te">结束时间</th>
+                            <th class="submited_header_option"></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!--
+                        <tr>
+                            <td colspan="6">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <div class="submited_card_circle">
+                                            <div class="circle">O</div>
+                                        </div>
+                                        <div class="submited_card_stage">高中</div>
+                                        <div class="submited_card_subject">物理</div>
+                                        <div class="submited_card_ts">2021-05-04 06:06:06</div>
+                                        <div class="submited_card_te">2021-05-04 06:06:06</div>
+                                        <div class="submited_card_optin">
+                                            <button id="submited_button">删&emsp;除</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                        -->
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="not_confirm">
+                <div class="titlebox">待确认信息</div>
+                <table id="unconfirm-data-table">
+                    <thead>
+                        <tr>
+                            <th class="unconfirm_header_circle">&emsp;&emsp;&emsp;</th>
+                            <th class="unconfirm_header_id">联系方式</th>
+                            <th class="unconfirm_header_name">姓名</th>
+                            <th class="unconfirm_header_stage">阶段</th>
+                            <th class="unconfirm_header_subject">科目</th>
+                            <th class="unconfirm_header_time">授课时间</th>
+                            <th class="unconfirm_header_option"></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                        <!--example 1-->
+                        <!--
+                        <tr>
+                            <td colspan="7">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <div class="unconfirm_card_circle">
+                                            <div class="circle">O</div>
+                                        </div>
+                                        <div class="unconfirm_card_id">15222222222</div>
+                                        <div class="unconfirm_card_name">哈哈哈</div>
+                                        <div class="unconfirm_card_stage">高中</div>
+                                        <div class="unconfirm_card_subject">物理</div>
+                                        <div class="unconfirm_card_time">2021-05-04 06:06:06</div>
+                                        <div class="unconfirm_card_optin">
+                                            <button id="confirm_button">确&emsp;认</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                        -->
+                        <!--example 2-->
+                        <!--
+                        <tr>
+                            <td colspan="7">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <div class="unconfirm_card_circle">
+                                            <div class="circle">O</div>
+                                        </div>
+                                        <div class="unconfirm_card_id">15222222222</div>
+                                        <div class="unconfirm_card_name">哈哈哈</div>
+                                        <div class="unconfirm_card_stage">高中</div>
+                                        <div class="unconfirm_card_subject">物理</div>
+                                        <div class="unconfirm_card_time">2021-05-04 06:06:06</div>
+                                        <div class="unconfirm_card_optin">
+                                            <button id="confirm_button">确&emsp;认</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                        -->
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="doing">
+                <div class="titlebox">正在上课</div>
+                <table id="doing-data-table">
+                    <thead>
+                        <tr>
+                            <th class="doing_header_circle">&emsp;&emsp;&emsp;</th>
+                            <th class="doing_header_id">联系方式</th>
+                            <th class="doing_header_name">姓名</th>
+                            <th class="doing_header_stage">阶段</th>
+                            <th class="doing_header_subject">科目</th>
+                            <th class="doing_header_ts">开始时间</th>
+                            <th class="doing_header_te">结束时间</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!--example 1-->
+                        <!--
+                        <tr>
+                            <td colspan="7">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <div class="unconfirm_card_circle">
+                                            <div class="circle">O</div>
+                                        </div>
+                                        <div class="doing_card_id">15222222222</div>
+                                        <div class="doing_card_name">哈哈哈</div>
+                                        <div class="doing_card_stage">高中</div>
+                                        <div class="doing_card_subject">物理</div>
+                                        <div class="doing_card_ts">2021-05-04 06:06:06</div>
+                                        <div class="doing_card_te">2021-05-04 06:06:06</div>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                        -->
+                        <!--example 2-->
+                        <!--
+                        <tr>
+                            <td colspan="7">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <div class="unconfirm_card_circle">
+                                            <div class="circle">O</div>
+                                        </div>
+                                        <div class="doing_card_id">15222222222</div>
+                                        <div class="doing_card_name">哈哈哈</div>
+                                        <div class="doing_card_stage">高中</div>
+                                        <div class="doing_card_subject">物理</div>
+                                        <div class="doing_card_ts">2021-05-04 06:06:06</div>
+                                        <div class="doing_card_te">2021-05-04 06:06:06</div>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                        -->
+                    </tbody>
+                </table>
+
+            </div>
+
+        </div>
+    </main>
+    <div class="soft_info">
+        <h3>
+            《琢玉》是一款由哈尔滨工业大学软工自主研发的游戏。游戏发生在一个被称作“银河系猎户座第三旋臂太阳系第三行星”的世界，玩家将扮演一个被称作“大学牲”的神秘角色，在学校的旅程中邂逅风格各异，要求独特的DDL，并和同学们一起击败考试，寻找丢失的学分绩，同时逐步发掘“通宵写报告”的真相
+        </h3>
+    </div>
+
+</body>
+
+</html>

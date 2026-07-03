@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>学生页面</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="../js/search_script.js"></script>
+</head>
+
+<body style="background-color:#f2f5f9">
+    <header>
+        <div class="logo_style">琢玉</div>
+        <nav>
+            <ul class="nav_links">
+                <li><a href="../../homepage/templates/homepage_stu.html">主页搜索</a></li>
+                <li><a href="../../info_release/templates/info_release_stu.html">查询结果</a></li>
+                <li><a href="../../course_progress/templates/course_progress.html">已选课程</a></li>
+            </ul>
+        </nav>
+        <a href="../../login/templates/login_student.html" class="exit_button"><button>退出登录</button></a>
+    </header>
+
+    <main>
+        <div class="wtf_main">
+            <div class="form-container">
+                <h2>信息查询</h2>
+                <form id="publishForm" action="/submit" method="post">
+                    <div class="form-group">
+                        <label for="subject">科目:</label>
+                        <input type="text" id="subject" name="subject" class="required">
+                    </div>
+                    <div class="form-group">
+                        <label for="stage">阶段:</label>
+                        <input type="text" id="stage" name="stage" class="required">
+                        <span class="msg"></span>
+                    </div>
+                    <div class="form-group">
+                        <label for="time">时间:</label>
+                        <input type="datetime-local" id="time" name="time" class="required">
+                    </div>
+                    <div class="form-group">
+                        <label for="gender">期望性别:</label>
+                        <select id="gender" name="gender" class="required">
+                            <option value="male">男</option>
+                            <option value="female">女</option>
+                            <option value="any">不限</option>
+                        </select>
+                    </div>
+                    <button type="button" id="btnSubmit">开始查询</button>
+                </form>
+            </div>
+        </div>
+    </main>
+    <div class="soft_info">
+        <h3>
+        《琢玉》是一款由哈尔滨工业大学软工自主研发的游戏。游戏发生在一个被称作“银河系猎户座第三旋臂太阳系第三行星”的世界，玩家将扮演一个被称作“大学牲”的神秘角色，在学校的旅程中邂逅风格各异，要求独特的DDL，并和同学们一起击败考试，寻找丢失的学分绩，同时逐步发掘“通宵写报告”的真相
+        </h3>
+    </div>
+</body>
+
+</html>

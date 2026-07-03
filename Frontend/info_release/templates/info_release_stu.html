@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>学生页面</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="../js/recommend_script.js"></script>
+</head>
+
+<body style="background-color:#f2f5f9">
+    <header>
+        <div class="logo_style">琢玉</div>
+        <nav>
+            <ul class="nav_links">
+                <li><a href="../../homepage/templates/homepage_stu.html">主页搜索</a></li>
+                <li><a href="javascript:;">查询结果</a></li>
+                <li><a href="../../course_progress/templates/course_progress.html">已选课程</a></li>
+            </ul>
+        </nav>
+        <a href="../../login/templates/login_student.html" class="exit_button"><button>退出登录</button></a>
+    </header>
+
+    <main>
+        <div class="wtf_main">
+            <div class="stu_recom_box2">
+                <div class="stu_text_box2">家教推荐</div>
+                <div id="recommendations"></div> <!-- 用于显示推荐结果 -->
+
+
+                <table id="data-table">
+                    <thead>
+                        <tr>
+                            <th class="table_header_circle"> </th>
+                            <th class="table_header_id">手机号</th>
+                            <th class="table_header_name">姓名</th>
+                            <th class="table_header_sex">性别</th>
+                            <th class="table_header_school">学校</th>
+                            <th class="table_header_stage">阶段</th>
+                            <th class="table_header_subject">科目</th>
+                            <th class="table_header_ts">开始时间</th>
+                            <th class="table_header_te">结束时间</th>
+                            <th class="table_header_rating">综合评分</th>
+                            <th class="table_option">&emsp;&emsp;&emsp;</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!--example 1-->
+                        <!--
+                        <tr>
+                            <td colspan="11">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <div class="card-circle">
+                                            <div class="circle">O</div>
+                                        </div>
+                                        <div class="card_id">15222222222</div>
+                                        <div class="card_name">哈哈哈</div>
+                                        <div class="card_sex">男</div>
+                                        <div class="card_school">哈尔滨工业大学</div>
+                                        <div class="card_stage">高中</div>
+                                        <div class="card_subject">物理</div>
+                                        <div class="card_ts">2020-05-04</div>
+                                        <div class="card_te">2021-05-04</div>
+                                        <div class="star-rating">
+                                            <div class="stars">
+                                                <div class="star" data-value="1"></div>
+                                                <div class="star" data-value="2"></div>
+                                                <div class="star" data-value="3"></div>
+                                                <div class="star" data-value="4"></div>
+                                                <div class="star" data-value="5"></div>
+                                            </div>
+                                            <div class="rating-value">Rating: <span id="rating"></span></div>
+                                        </div>
+                                        <div class="card_optin">
+                                            <button id="open_select">选&emsp;课</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+-->
+                        <!--example 2-->
+                        <!--
+
+                        <tr>
+                            <td colspan="11">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <div class="card-circle">
+                                            <div class="circle">O</div>
+                                        </div>
+                                        <div class="card_id">15222222222</div>
+                                        <div class="card_name">哈哈哈</div>
+                                        <div class="card_sex">男</div>
+                                        <div class="card_school">哈尔滨工业大学</div>
+                                        <div class="card_stage">高中</div>
+                                        <div class="card_subject">物理</div>
+                                        <div class="card_ts">2020-05-04</div>
+                                        <div class="card_te">2021-05-04</div>
+                                        <div class="star-rating">
+                                            <div class="stars">
+                                                <div class="star" data-value="1"></div>
+                                                <div class="star" data-value="2"></div>
+                                                <div class="star" data-value="3"></div>
+                                                <div class="star" data-value="4"></div>
+                                                <div class="star" data-value="5"></div>
+                                            </div>
+                                            <div class="rating-value">Rating: <span id="rating"></span></div>
+                                        </div>
+                                        <div class="card_optin">
+                                            等待确认
+                                        </div>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+-->
+                    </tbody>
+                </table>
+
+
+            </div>
+        </div>
+    </main>
+    <!--
+    <div class="soft_info">
+        <h3>
+            《琢玉》是一款由哈尔滨工业大学软工自主研发的游戏。游戏发生在一个被称作“银河系猎户座第三旋臂太阳系第三行星”的世界，玩家将扮演一个被称作“大学牲”的神秘角色，在学校的旅程中邂逅风格各异，要求独特的DDL，并和同学们一起击败考试，寻找丢失的学分绩，同时逐步发掘“通宵写报告”的真相
+        </h3>
+    </div>
+-->
+    <!--悬浮页面1 选课按钮-->
+    <div id="SelectModal" class="select_modal">
+        <div class="select_modal-content">
+            <span class="close">&times;</span>
+            <div class="select_modal-main">
+                <div class="modal-confirm_text">
+                    确认要选择该课程吗？
+                </div>
+                <button id="confirm_select">确认选课</button>
+            </div>
+        </div>
+    </div>
+
+    <!--悬浮页面2 教师信息查看-->
+    <div id="InfoModal" class="info_modal">
+        <div class="info_modal-content">
+            <span class="close">&times;</span>
+            <div class="info_modal-main">
+                <!--example-->
+
+
+                <div class="imgbox">
+                    <img src="../imgs/Alice.png" alt="用户头像" class="img_form">
+                </div>
+                <div class="infobox">
+                    <div class="info-form-group">
+                        <label for="id">联系方式：</label>
+                        <span>15166666666</span>
+                    </div>
+                    <div class="info-form-group">
+                        <label for="name">姓&emsp;&emsp;名：</label>
+                        <span>保罗</span>
+                    </div>
+                    <div class="info-form-group">
+                        <label for="sex">性&emsp;&emsp;别：</label>
+                        <span>男</span>
+                    </div>
+                    <div class="info-form-group">
+                        <label for="school">学&emsp;&emsp;校：</label>
+                        <span>哈尔滨工业大学</span>
+                    </div>
+                    <div class="info-form-group">
+                        <label for="subject">教学科目：</label>
+                        <span>数学/英语</span>
+                    </div>
+                    <div class="info-form-group">
+                        <label for="mail">邮&emsp;&emsp;箱：</label>
+                        <span>ludius_father@163.com</span>
+                    </div>
+                    <div class="info-form-group">
+                        <label for="address">地&emsp;&emsp;址：</label>
+                        <span>夏利亚北部独栋住宅区1栋草坪1号坟</span>
+                    </div>
+                </div>
+
+
+                <div class="info_title">教师信息</div>
+
+
+                <div class="introduce_box">全民制作人大家好，我是来自哈尔滨工业大学练习时长达到两年半的偶像练习生</div>
+
+
+                <div class="introduce_title">自我介绍</div>
+
+
+            </div>
+        </div>
+    </div>
+
+
+
+    <!-- <script src="../js/recommend_script.js"></script> -->
+
+
+
+</body>
+<!--选课确认-->
+<!--
+<script>
+    $(document).ready(function () {
+        var modal = document.getElementById("SelectModal");
+        var btn = document.getElementById("open_select");
+        var span = document.getElementsByClassName("close")[0];
+        btn.onclick = function () {
+            modal.style.display = "block";
+        }
+        span.onclick = function () {
+            modal.style.display = "none";
+        }
+        window.onclick = function (event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+    });
+</script>
+-->
+
+<!--
+
+<script>
+    $(document).ready(function () {
+        var modal = document.getElementById("InfoModal");
+        var btns = document.querySelectorAll(".card_name");
+        var span = document.getElementsByClassName("close")[1];
+        btns.forEach(function (btn) {
+            btn.onclick = function () {
+                modal.style.display = "block";
+            }
+        });
+        span.onclick = function () {
+            modal.style.display = "none";
+        }
+        window.onclick = function (event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+    });
+
+</script>
+-->
+
+</html>

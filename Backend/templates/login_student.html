@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>学生登录</title>
+    <span class="head-title">琢玉</span>
+    <link rel="stylesheet" href="../assets/libs/particles/css/style.css">
+    <link rel="stylesheet" href="../assets/css/base.css">
+    <link rel="stylesheet" href="../assets/css/login.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="../js/script.js"></script>
+</head>
+<body>
+    <!-- particles.js container -->
+    <div id="particles-js"></div>
+    <div id="info_wrapper">
+        <h2>与做题家分享你的知识、经验和见解</h2>
+    </div>
+    <div id="wrapper">
+        <nav class="switch_nav">
+            <a href="javascript:;" id="switch_login" class="switch_btn on">学生登录</a>
+            <a href="login_teacher.html" id="switch_login" class="switch_btn">教师登录</a>
+            <a href="register.html" id="switch_signup" class="switch_btn">用户注册</a>
+            <div class="switch_bottom" id="switch_bottom"></div>
+        </nav>
+        <div id="login">
+            <form id="loginFormStudent">
+                <ul class="group_input">
+                    <li>
+                        <input type="text" class="mobile required" id="student_mobile" placeholder="手机号">
+                    </li>
+                    <li>
+                        <input type="password" class="psd required" id="student_password" placeholder="密码">
+                    </li>
+                </ul>
+                <button type="submit" class="submit_btn" id="student_btnSubmit">登录</button>
+            </form>
+            <div class="states">
+                <span class="right"><a href="javascript:;">无法登录？</a></span>
+            </div>
+        </div>
+        <div class="QRcode_btn">
+            <div type="submit" class="submit_btn download_btn">下载琢玉App</div>
+            <div class="QRcode">
+                <img src="../assets/img/QRcode.png" alt="QRcode">
+                <div class="box"></div>
+            </div>
+        </div>
+    </div>
+    <div id="soft_info">
+        <h3>《琢玉》是一款由哈尔滨工业大学软工自主研发的游戏。游戏发生在一个被称作“银河系猎户座第三旋臂太阳系第三行星”的世界，玩家将扮演一个被称作“大学牲”的神秘角色，在学校的旅程中邂逅风格各异，要求独特的DDL，并和同学们一起击败考试，寻找丢失的学分绩，同时逐步发掘“通宵写报告”的真相。</h3>
+    </div>
+    <script src="../assets/libs/jquery-1.12.4/jquery.min.js"></script>
+    <script src="../assets/libs/particles/particles.min.js"></script>
+    <script src="../assets/libs/particles/js/app.js"></script>
+    <script>
+        var count_particles, stats, update;
+        stats = new Stats;
+        stats.setMode(0);
+        stats.domElement.style.position = 'absolute';
+        stats.domElement.style.left = '0px';
+        stats.domElement.style.top = '0px';
+        document.body.appendChild(stats.domElement);
+        count_particles = document.querySelector('.js-count-particles');
+        update = function() {
+            stats.begin();
+            stats.end();
+            if (window.pJSDom[0].pJS.particles && window.pJSDom[0].pJS.particles.array) {
+                count_particles.innerText = window.pJSDom[0].pJS.particles.array.length;
+            }
+            requestAnimationFrame(update);
+        };
+        requestAnimationFrame(update);
+    </script>
+    <script>
+        $(".download_btn").click(function(){
+            if($(".QRcode").css("display")=="none"){
+                $(".QRcode").show();
+                $(".download_btn").text("关闭二维码");
+            }else{
+                $(".QRcode").hide();
+                $(".download_btn").text("下载琢玉App");
+            }
+        });
+    </script>
+    <script>
+        $(function(){
+            $("form :input").blur(function(){
+                var $parent = $(this).parent();
+                $parent.find(".msg").remove();
+                if($(this).is("#student_mobile")){
+                    var mobileVal = $.trim(this.value);
+                    if(mobileVal == ""){
+                        var errorMsg = " 请输入手机号！";
+                        $parent.append("<span class='msg onError'>" + errorMsg + "</span>");
+                    } else{
+                        var okMsg=" 输入正确";
+                        $parent.append("<span class='msg onSuccess'>" + okMsg + "</span>");
+                    }
+                }
+                if($(this).is("#student_password")){
+                    var psdVal = $.trim(this.value);
+                    var regPsd = /^(?![0-9]+$)(?![a-zA-Z]+$)[0-9A-Za-z]{6,20}$/;
+                    if(psdVal== "" || !regPsd.test(psdVal)){
+                        var errorMsg = " 密码为6-20位字母、数字的组合！";
+                        $parent.append("<span class='msg onError'>" + errorMsg + "</span>");
+                    } else{
+                        var okMsg=" 输入正确";
+                        $parent.append("<span class='msg onSuccess'>" + okMsg + "</span>");
+                    }
+                }
+            }).keyup(function(){
+                $(this).triggerHandler("blur");
+            }).focus(function(){
+                $(this).triggerHandler("blur");
+            });
+
+            $("#student_btnSubmit").click(function(){
+                $("form .required:input").trigger("blur");
+                var numError = $("form .onError").length;
+                if(numError){
+                    return false;
+                }
+            });
+        });
+    </script>
+    <script src="../assets/js/script.js"></script>
+</body>
+</html>
