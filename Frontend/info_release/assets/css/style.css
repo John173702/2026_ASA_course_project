@@ -1,7 +1,7 @@
-/*顶部导航栏*/
+﻿/*椤堕儴瀵艰埅鏍?/
 .logo_style {
     color: #0f88eb;
-    font-family: '华文彩云';
+    font-family: '鍗庢枃褰╀簯';
     font-size: 50px;
     position: relative;
     top: -5px;
@@ -79,7 +79,7 @@ header button:hover{
     background-color: rgba(0, 136, 169, 0.7);
  }
 
-/*主体部分*/
+/*涓讳綋閮ㄥ垎*/
 
 .wtf_main {
     
@@ -90,7 +90,7 @@ header button:hover{
 }
 
 
-/*学生已发布信息框*/
+/*瀛︾敓宸插彂甯冧俊鎭*/
 .home_stu_submited{
     height: 300px;
     width: 700px;
@@ -111,7 +111,7 @@ header button:hover{
 
 
 
-/*已发布信息box1*/
+/*宸插彂甯冧俊鎭痓ox1*/
 .stu_text_box1{
     font-family: "Montserrat",sans-serif;
     font-size:18px;
@@ -126,9 +126,9 @@ header button:hover{
     display: inline-block;
 }
 
-/*学生已发布信息查询按钮*/
+/*瀛︾敓宸插彂甯冧俊鎭煡璇㈡寜閽?/
 .stu_submited_search{
-    /*修饰搜索按钮部分*/
+    /*淇グ鎼滅储鎸夐挳閮ㄥ垎*/
     border: none;
     width: 80px;
     height: 40px;
@@ -142,7 +142,7 @@ header button:hover{
 }
 
 
-/*学生推荐家教信息框*/
+/*瀛︾敓鎺ㄨ崘瀹舵暀淇℃伅妗?/
 .stu_recom_box2{
     min-height: 300px;
     width: 1200px;
@@ -160,7 +160,7 @@ header button:hover{
 }
 
 
-/*推荐家教信息box2*/
+/*鎺ㄨ崘瀹舵暀淇℃伅box2*/
 .stu_text_box2{
     margin-left:550px;
     font-family: "Montserrat",sans-serif;
@@ -175,9 +175,9 @@ header button:hover{
     background-color: #0f88eb;
 }
 
-/*推荐家教信息查询按钮*/
+/*鎺ㄨ崘瀹舵暀淇℃伅鏌ヨ鎸夐挳*/
 .stu_recom_search{
-    /*修饰搜索按钮部分*/
+    /*淇グ鎼滅储鎸夐挳閮ㄥ垎*/
     border: none;
     width: 80px;
     height: 40px;
@@ -198,7 +198,7 @@ header button:hover{
 
 
 
-/*新的*/
+/*鏂扮殑*/
 .form-container {
     background-color: #fff;
     padding: 20px;
@@ -267,7 +267,7 @@ button:hover {
 }
 
 
-/*家教查询结果表 表头*/
+/*瀹舵暀鏌ヨ缁撴灉琛?琛ㄥご*/
 thead th {
     border-bottom: 1px solid #dae5f1;
     padding: 10px;
@@ -314,7 +314,7 @@ thead th {
 
 
 
-/*家教查询结果表 表内卡片*/
+/*瀹舵暀鏌ヨ缁撴灉琛?琛ㄥ唴鍗＄墖*/
 .card {
     background-color: #f0f4f8;
     border: 1px solid white;
@@ -396,7 +396,7 @@ thead th {
 /**/
 
 
-/*家教 信息发布*/
+/*瀹舵暀 淇℃伅鍙戝竷*/
 #introduce-self{
     resize:none;
     width: 410px;
@@ -404,7 +404,7 @@ thead th {
     font-size:16px;
 }
 
-/*评分系统 星星*/
+/*璇勫垎绯荤粺 鏄熸槦*/
 .star-rating {
     flex-basis:9%;
     display: inline-block;
@@ -421,12 +421,12 @@ thead th {
 }
 
 .star::before {
-    content: '★';
+    content: '鈽?;
     display: inline-block;
 }
 
 .star.half::before {
-    content: '★';
+    content: '鈽?;
     display: inline-block;
     background: linear-gradient(90deg, gold 50%, lightgray 50%);
     -webkit-background-clip: text;
@@ -436,19 +436,19 @@ thead th {
 }
 
 .star.full::before {
-    content: '★';
+    content: '鈽?;
     display: inline-block;
     color: gold;
 }
 /**/
 
-/*选课按钮*/
+/*閫夎鎸夐挳*/
 #open_select{
     background-color: #0f88eb;
     border-radius: 10%;
 }
 
-/*悬浮页面 选课*/
+/*鎮诞椤甸潰 閫夎*/
 .select_modal {
     display: none;
     position: fixed;
@@ -475,14 +475,14 @@ thead th {
     border-radius: 7%;
 }
 
-/*悬浮页面 内容框*/
+/*鎮诞椤甸潰 鍐呭妗?/
 .select_modal-main{
     margin: 5% auto;
     width:80%;
     height:300px;
 }
 
-/*悬浮页面 确定要删除内容吗*/
+/*鎮诞椤甸潰 纭畾瑕佸垹闄ゅ唴瀹瑰悧*/
 
 .modal-confirm_text{
     height:100px;
@@ -521,7 +521,7 @@ thead th {
     cursor: pointer;
 }
 
-/*教师信息框*/
+/*鏁欏笀淇℃伅妗?/
 
 .info_modal {
     display: none;
@@ -553,7 +553,7 @@ thead th {
     height:500px;
 }
 
-/*教师头像*/
+/*鏁欏笀澶村儚*/
 .imgbox{
     width:250px;
     height:250px;
@@ -571,13 +571,13 @@ thead th {
     top:45px;
 }
 
-/*教师信息*/
+/*鏁欏笀淇℃伅*/
 .info_title{
     position:relative;
     top:-545px;
     left:450px;
     font-size: 30px;
-    font-family: "华文彩云";
+    font-family: "鍗庢枃褰╀簯";
 }
 
 
@@ -620,5 +620,16 @@ thead th {
     top:-420px;
     left:100px;
     font-size: 30px;
-    font-family: "华文彩云";
+    font-family: "鍗庢枃褰╀簯";
+}
+.card_capacity {
+    min-width: 84px;
+    color: #d98228;
+    font-weight: 700;
+    text-align: center;
+}
+
+button:disabled {
+    opacity: 0.55;
+    cursor: not-allowed;
 }
